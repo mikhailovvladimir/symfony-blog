@@ -22,5 +22,14 @@ services:
 
     Cocur\Slugify\Slugify:
         autowire: true
+
+    security:
+        encoders:
+            App\Entity\User: bcrypt
+        providers:
+            database_users:
+                entity:
+                    class: App\Entity\User,
+                    property: email
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
